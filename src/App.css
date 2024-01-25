@@ -1,0 +1,80 @@
+/* App.css */
+
+
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom left, #66ccff 0%, #ff0066 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 10px;
+  font-size: 22px;
+  font-style: italic;
+}
+
+.app-header {
+  background-color: #fff;
+  max-width: 600px;
+  max-height: 600px;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 3px 15px black;
+  text-align: center;
+  color: #145475;
+}
+
+.app-header h2{
+  text-shadow: 1.5px 1.5px #ccc;
+  margin-bottom: 20px;
+}
+.quote-visible {
+  border: 2px solid black;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.9);
+  border-radius: 20px;
+}
+
+.quote-container {
+  max-width: 600px;
+  max-height: 500px;
+  margin: 30px auto;
+  padding: 10px;
+  text-align: center;
+  
+}
+
+.quote-text {
+  color: #1b0d12;
+  font-weight: bolder;
+}
+
+.generate-button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  background-color: crimson;
+  color: #fff;
+  border: 1px solid crimson;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(100, 100, 100, 0.7);
+}
+
+.generate-button:hover {
+  background-color: transparent;
+  color: rgb(40, 8, 15);
+}
+
+.author-text {
+  color: #5d3bd8;
+  font-weight: bolder;
+  
+}
