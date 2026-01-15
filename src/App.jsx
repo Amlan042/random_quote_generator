@@ -1,20 +1,45 @@
+import React, {use, useEffect, useState} from 'react'
+import { getRandomColor, fetchData } from './utils';
+import { Container, Quotebox, Button } from './Components';
 
-import React from 'react';
-import './App.css';
-import QuoteGenerator from './QuoteGenerator';
 
 function App() {
+  const [quote, setQuote] = useState(null);
+  const [author, setAuthor] = useState(null);
+  const [color, setColor] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  // populate the result data to quote and author on the screen
+  const populateData = async () => {
+    setLoading(true);
+    const result = await fetchData();
+    const randomColor = getRandomColor();
+    setColor(randomColor);
+    setQuote(result.content);
+    setAuthor(result.author);
+    setLoading(false);
+  };
+
+  useEffect(()=>{
+    populateData();
+  }, []);
+
   return (
-    <div className="app">
-      <header className="app-header">
-        <h2>Random Quote Generator</h2>
-        <main>
-        <QuoteGenerator />
-      </main>
-      </header>
-      
-    </div>
-  );
+    <Container color = {color}>
+      <h1>Stay Motivated</h1>
+      <Quotebox>
+        {loading ? (
+          <div className="spinner"></div>
+        ) : (
+          <>
+            <p id="quote" >{quote}</p>
+            <p id="author" >{`- ${author || 'Anonymous'}`}</p>
+          </>
+        )}
+        <Button onClick={populateData} color={color} text='Get Random Quote' ></Button>
+      </Quotebox>
+    </Container>
+  )
 }
 
-export default App;
+export default App
